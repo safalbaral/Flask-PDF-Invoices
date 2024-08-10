@@ -2,6 +2,9 @@
 
 A simple Flask web application for generating PDF invoices. This project allows users to enter all costs for a bill through the website, add discounts, and then finally generate a PDF invoice.
 
+![Alt text](./images/BillGenerator.png)
+![Alt text](./images/GeneratedBill.png)
+
 ## Usage
 
 1. **Clone the repository:**
