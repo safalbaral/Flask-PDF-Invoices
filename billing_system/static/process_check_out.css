@@ -1,0 +1,128 @@
+main {
+    display: grid;
+    grid-template-areas: 
+    "billing_area total_calculate_area"
+    ". total_calculate_area";
+
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-gap: 1rem;
+    height: 100%;
+    background-color: #212529;
+}
+
+
+label {
+    font-weight:700;
+}
+
+.totalling_area {
+    margin: 1rem;
+    padding: 1rem;
+}
+
+#totalling_form {
+    grid-area: total_calculate_area;
+    max-height: 12rem;
+    position:relative;
+    margin-top: 8rem;
+    margin-right: 2rem;
+}
+
+.total_widget {
+    grid-area: total_calculate_area;
+    position: relative;
+    margin-top: 22rem;
+    margin-right: 2rem;
+}
+
+.info_color {
+    color: #03dac5;
+}
+
+table {
+    text-align: center;
+    box-shadow: 0 5px 15px 5px rgba(0,0,0,0.5);
+}
+
+.form-control {
+    display: inline;
+}
+
+table td input[type="text"] {
+    width: 15rem;
+}
+
+#total_calculate_area {
+    grid-area: total_calculate_area;
+    background-color: #304049;
+
+    display: grid;
+    grid-template-areas: 
+    "discount_area"
+    "total_area";
+    grid-template-rows: 0.5fr 1fr;
+
+    box-shadow: 0 5px 15px 5px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    flex-wrap: nowrap;
+}
+
+.discount_area {
+    padding-top: 1rem;
+    grid-area: discount_area;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+    background-color: #232f36;
+}
+
+.discount_area button {
+   padding: 0.5rem; 
+   margin : 0.5rem; 
+}
+
+.discount_area input {
+   padding: 0.5rem; 
+   margin : 0.5rem; 
+   width: 7.5rem;
+   align-self: center;
+}
+
+.total_area {
+    grid-area: total_area;
+    padding: 0 0.5rem 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.total_area p {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.total_area p span {
+    font-size: 1rem;
+}
+
+#grand_total {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #f9aa33;
+}
+
+.custom-card {
+    padding: 1rem;
+    box-shadow: 0 -3px 15px 5px rgba(0,0,0,0.5);
+}
+
+.info-header {
+    color: orange;
+    font-weight: 300;
+    font-size: 2rem;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../../static/invoice.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice</title>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div class="top-area">
+        <div class="top-left">
+          <h1 style="font-size: 3.75rem">Example Business</h1>
+          <!--REPLACE-->
+          <h3 style="margin-top: -1rem">Example Business Address, Earth</h3>
+          <!--REPLACE-->
+          <br />
+          <h3 style="margin-top: -1.75rem; font-weight: 800">
+            PERFORMA INVOICE - PROVISIONAL
+          </h3>
+        </div>
+        <div class="top-right">
+          <h2>Invoice ID: {{ INVOICE_ID }}</h2>
+          <div class="invoice-dates">
+            Date Issued: <br />
+            {{ CURRENT_DATE }}
+          </div>
+          <div class="customer-details">
+            <br />
+            <strong>Invoice To:</strong>
+            <br />
+            {{ GUEST_NAME }}
+          </div>
+        </div>
+      </div>
+      <div class="main-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          {% for item in form.additional_items %} {% if
+          item.item_description.data != '' and item.item_description.data !=
+          'Lorem Ipsum' %}
+          <tr class="colored-td">
+            <td>{{ item.item_description.data }}</td>
+            <td>Rs.{{ item.price.data }}</td>
+            <td>{{ item.quantity.data }}</td>
+            <td>Rs.{{ item.price.data * item.quantity.data }}</td>
+          </tr>
+          {% endif %} {% endfor %}
+          <tr class="simple-td">
+            <td colspan="3">Total</td>
+            <td class="centered-text">Rs. {{ TOTAL }}</td>
+          </tr>
+          <tr class="simple-td">
+            <td colspan="3">Service Charge</td>
+            <td class="centered-text">{{ SERVICE_CHARGE_PERCENT }}%</td>
+          </tr>
+          <tr class="simple-td">
+            <td colspan="3">Total after service charge</td>
+            <td class="centered-text">Rs. {{ TOTAL_AFTER_SERVICE_CHARGE }}</td>
+          </tr>
+          {% if DISCOUNT_PERCENT > 0 %}
+          <tr class="simple-td">
+            <td colspan="3">Discount</td>
+            <td class="centered-text">{{ DISCOUNT_PERCENT }}%</td>
+          </tr>
+          <tr class="simple-td">
+            <td colspan="3">Total after discount</td>
+            <td class="centered-text">Rs. {{ TOTAL_AFTER_DISCOUNT }}</td>
+          </tr>
+          {% endif %}
+          <tr class="simple-td">
+            <td colspan="3">VAT</td>
+            <td class="centered-text">{{ VAT_PERCENT }}%</td>
+          </tr>
+          <tr class="simple-td">
+            <td colspan="3">Grand Total</td>
+            <td class="centered-text">Rs. {{ TOTAL_AFTER_VAT }}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="bottom-area">
+        <p>Thank you for staying at Example Business!</p>
+        <!--REPLACE-->
+      </div>
+    </div>
+  </body>
+</html>

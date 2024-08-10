@@ -1,0 +1,27 @@
+main {
+    display: grid;
+    grid-template-areas:
+    "invoice info";
+
+    grid-template-columns: 0.70fr 0.30fr;
+    grid-gap: 0.5rem;
+}
+
+.pdf_area {
+    grid-area: "invoice";
+}
+
+.info_area {
+    grid-area: "info";
+    background-color : #6200ee;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.info_area h1 {
+    color: #03dac5;
+    font-weight: bold;
+    font-size: 3rem;
+    text-align: center;
+}

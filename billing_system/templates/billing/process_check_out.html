@@ -1,0 +1,78 @@
+{% extends "billing/layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='process_check_out.css') }}">
+<script src="{{ url_for('static', filename='process_check_out.js') }}"></script>
+{% endblock %}
+
+{% block sidebar %}
+<h1>Billing</h1>
+{% endblock %}
+
+{% block content %}
+<div class="totalling_area">
+    <h2 class="info-header">Start entering the items, their prices and quantities below</h2>
+    <table id="totalling_table" class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+        <form action="{{ url_for('process_check_out')  }}" method="post">
+            {{ form.hidden_tag() }}
+                {% for field in form.additional_items %}
+                <tr>
+                    <fieldset style="padding:0; margin:0;" class="form-group">
+
+                        <td>{{ loop.index }}</td>
+
+                        <td>{{ field.item_description(class='form-control for-evt-listener', placeholder='Add cost\'s name')}}</td>
+
+                        <td>{{ field.price(class='form-control for-evt-listener') }}</td>
+
+                        <td>{{ field.quantity(class='form-control for-evt-listener') }}</td>
+
+                    </fieldset>
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div id="totalling_form" class="custom-card text-white bg-dark">
+    <div class="form-group">
+        <label for="guest_name">
+            Invoice To:
+        </label>
+        {{ form.guest_name(class='form-control', placeholder='Enter name') }}
+        <label for="invoice_id">
+            Invoice ID:
+        </label>
+        {{ form.invoice_id(class='form-control', placeholder='Enter ID') }}
+    </div>
+</div>
+
+<div class="total_widget">
+    <div id="total_calculate_area">
+        <div class="discount_area">
+            <span style="font-size: 2rem; color: greenyellow; font-weight: bold; align-self: center;">Add
+                Discount %</span>
+            <div class="discount_area">
+                {{ form.discount_percent(class='for-evt-listener', id = "discount_percent", placeholder="Discount %") }}
+            </div>
+        </div>
+        <div class="total_area">
+            <p style="color: #e8ecee;">Total <span>  + 13% VAT <br> and 10% service charge</span></p>
+            <span id="grand_total"></span>
+            <span id="thingything">
+                <button id="test_button" type="submit" class="btn btn-danger">Generate Invoice</button>
+            </span>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

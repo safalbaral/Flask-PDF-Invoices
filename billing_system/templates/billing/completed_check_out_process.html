@@ -1,0 +1,19 @@
+
+{% extends "billing/layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='completed_check_out_process.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="pdf_area">
+    <object style="width:100%; height:100%;" data="data:application/pdf;base64,{{ invoice }}" type=""></object>
+</div>
+
+<div class="info_area">
+    <h1>Invoice Generated Successfully! Remember to Download Before Printing.</h1>
+    <div class="d-flex justify-content-center align-items-center" style="width: 100%;">
+        <button class="btn btn-warning" onclick=history.back()>Click here to edit items</button>
+    </div>
+</div>
+{% endblock %}

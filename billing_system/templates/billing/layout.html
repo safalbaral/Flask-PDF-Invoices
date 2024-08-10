@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/da8999c8f9.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='hotel.css')}}">
+  {% block head %}
+  {% endblock %}
+  <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+  <div class="container_main">
+    <div class="top">
+      <h1>Generate Invoice</h1>
+      {% block top %}
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      {% endblock %}
+    </div>
+
+
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    <footer style="background-color: cornflowerblue; display:flex; align-items: center; align-content: center;">
+      <h6
+        style="font-size: medium; padding-top: 0.5%; margin-left:auto; margin-right: auto; text-align: center !important;">
+        Created with ♥ </h6>
+    </footer>
+  </div>
+  {% block body %}
+  {% endblock %}
+  </div>
+</body>
+
+</html>

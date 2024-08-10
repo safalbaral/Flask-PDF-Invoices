@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+@page {
+  /* width/height according to the format */
+  size: 210mm 297mm;
+
+  /* margins on every page */
+  margin-top: 10mm;
+  margin-right: 10mm;
+  margin-bottom: 10mm;
+  margin-left: 10mm;
+
+  @bottom-center {
+    width: 100%;
+    border-top: 1px solid gray;
+    color: gray;
+    /* content: 'This is a computer generated invoice.'; */
+    content: "Example Business, Earth"; /*REPLACE*/
+    padding: 10px;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  margin-top: -500px;
+}
+
+footer p {
+  border-top: 1px solid gray;
+  text-align: center;
+  padding: 15px 0px;
+  color: gray;
+}
+
+h1 {
+  font-weight: bolder;
+}
+
+.top-area {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom-style: solid;
+  padding: 0px 0px 15px 0px;
+}
+
+.top-left {
+  display: flex;
+  align-self: flex-start;
+  color: cadetblue;
+  flex-direction: column;
+}
+
+.top-right {
+  display: flex;
+  align-self: flex-end;
+  color: #007bff;
+  flex-direction: column;
+}
+
+.customer-details {
+  color: #014894;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+body {
+  padding: 10px;
+  background-color: white;
+}
+
+h1 {
+  padding: 0px;
+  margin: 0px 0px 10px 0px;
+  font-size: 900px;
+}
+
+h2 {
+  padding: 0px;
+  margin: 0px 0px 10px 0px;
+}
+
+table {
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td {
+  height: 55px;
+  font-size: 17px;
+}
+
+th {
+  height: 35px;
+  background-color: cadetblue;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.colored-td {
+  background-color: #33cc99;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.bottom-area p {
+  color: #007bff;
+  font-size: larger;
+}
+
+.simple-td {
+  border: none;
+  text-align: right;
+  color: gray;
+}
+
+.simple-td td {
+  font-size: medium;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.final-start {
+  border-top: 1px solid gray;
+}
+
+.main-container {
+  position: relative;
+  min-height: 100vh;
+}
